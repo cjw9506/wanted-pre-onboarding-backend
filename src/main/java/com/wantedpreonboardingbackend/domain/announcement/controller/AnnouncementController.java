@@ -1,9 +1,6 @@
 package com.wantedpreonboardingbackend.domain.announcement.controller;
 
-import com.wantedpreonboardingbackend.domain.announcement.dto.AnnouncementRegisterRequestDto;
-import com.wantedpreonboardingbackend.domain.announcement.dto.AnnouncementListResponse;
-import com.wantedpreonboardingbackend.domain.announcement.dto.AnnouncementResponse;
-import com.wantedpreonboardingbackend.domain.announcement.dto.AnnouncementUpdateRequestDto;
+import com.wantedpreonboardingbackend.domain.announcement.dto.*;
 import com.wantedpreonboardingbackend.domain.announcement.service.AnnouncementService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
