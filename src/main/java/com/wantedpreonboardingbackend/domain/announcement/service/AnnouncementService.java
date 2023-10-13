@@ -2,8 +2,10 @@ package com.wantedpreonboardingbackend.domain.announcement.service;
 
 import com.wantedpreonboardingbackend.domain.announcement.dto.*;
 import com.wantedpreonboardingbackend.domain.announcement.entity.Announcement;
+import com.wantedpreonboardingbackend.domain.announcement.exception.AnnouncementNotFound;
 import com.wantedpreonboardingbackend.domain.announcement.repository.AnnouncementRepository;
 import com.wantedpreonboardingbackend.domain.company.entity.Company;
+import com.wantedpreonboardingbackend.domain.company.exception.CompanyNotFound;
 import com.wantedpreonboardingbackend.domain.company.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,7 +25,7 @@ public class AnnouncementService {
     public Long register(AnnouncementRegisterRequestDto request) {
 
         Company company = companyRepository.findById(request.getCompanyId()).
-                orElseThrow(IllegalStateException::new);
+                orElseThrow(CompanyNotFound::new);
 
         Announcement announcement = Announcement.builder()
                 .company(company)
@@ -41,7 +43,7 @@ public class AnnouncementService {
     @Transactional
     public void update(AnnouncementUpdateRequestDto request, Long announcementId) {
 
-        Announcement announcement = announcementRepository.findById(announcementId).orElseThrow(IllegalStateException::new);
+        Announcement announcement = announcementRepository.findById(announcementId).orElseThrow(AnnouncementNotFound::new);
 
         announcement.updateAnnouncement(request);
     }
@@ -49,7 +51,7 @@ public class AnnouncementService {
     @Transactional
     public void delete(Long announcementId) {
 
-        Announcement announcement = announcementRepository.findById(announcementId).orElseThrow(IllegalStateException::new);
+        Announcement announcement = announcementRepository.findById(announcementId).orElseThrow(AnnouncementNotFound::new);
 
         announcementRepository.delete(announcement);
     }
@@ -73,7 +75,7 @@ public class AnnouncementService {
 
     public AnnouncementResponse findOne(Long announcementId) {
 
-        Announcement announcement = announcementRepository.findById(announcementId).orElseThrow(IllegalStateException::new);
+        Announcement announcement = announcementRepository.findById(announcementId).orElseThrow(AnnouncementNotFound::new);
         List<Announcement> list = announcementRepository.findByCompanyId(announcement.getCompany().getId());
 
         List<Long> announcementIds = list.stream()
