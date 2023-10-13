@@ -23,7 +23,8 @@ public class Company {
     private String region;
 
     @Builder
-    public Company(String name, String nation, String region) {
+    public Company(Long id, String name, String nation, String region) {
+        this.id = id;
         this.name = name;
         this.nation = nation;
         this.region = region;

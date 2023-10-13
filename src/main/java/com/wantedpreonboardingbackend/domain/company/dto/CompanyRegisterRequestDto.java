@@ -1,11 +1,13 @@
 package com.wantedpreonboardingbackend.domain.company.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
+import lombok.Builder;
 import lombok.Getter;
-import org.hibernate.validator.constraints.Length;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Getter
+@Getter @Setter
+@NoArgsConstructor
 public class CompanyRegisterRequestDto {
 
     @NotBlank(message = "회사명을 입력해주세요.")
@@ -16,4 +18,11 @@ public class CompanyRegisterRequestDto {
 
     @NotBlank(message = "지역을 입력해주세요.")
     private String region;
+
+    @Builder
+    public CompanyRegisterRequestDto(String name, String nation, String region) {
+        this.name = name;
+        this.nation = nation;
+        this.region = region;
+    }
 }

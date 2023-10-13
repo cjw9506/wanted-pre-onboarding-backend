@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
 public class CompanyService {
 
     private final CompanyRepository companyRepository;
@@ -24,8 +23,6 @@ public class CompanyService {
                 .region(request.getRegion())
                 .build();
 
-        companyRepository.save(company);
-
-        return company.getId();
+        return companyRepository.save(company).getId();
     }
 }
