@@ -3,10 +3,12 @@ package com.wantedpreonboardingbackend.domain.announcement.dto;
 import com.wantedpreonboardingbackend.domain.announcement.entity.Announcement;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Getter
+@NoArgsConstructor
 public class AnnouncementResponse {
 
     private Long announcementId;

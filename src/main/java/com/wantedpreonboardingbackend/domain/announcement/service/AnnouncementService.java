@@ -35,9 +35,8 @@ public class AnnouncementService {
                 .skill(request.getSkill())
                 .build();
 
-        announcementRepository.save(announcement);
+        return announcementRepository.save(announcement).getId();
 
-        return announcement.getId();
     }
 
     @Transactional

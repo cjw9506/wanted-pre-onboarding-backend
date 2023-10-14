@@ -32,7 +32,8 @@ public class Announcement {
     private String skill;
 
     @Builder
-    public Announcement(Company company, String position, Long compensation, String content, String skill) {
+    public Announcement(Long id, Company company, String position, Long compensation, String content, String skill) {
+        this.id = id;
         this.company = company;
         this.position = position;
         this.compensation = compensation;
