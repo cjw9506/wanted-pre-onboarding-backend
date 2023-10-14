@@ -27,7 +27,8 @@ public class User {
     private String content;
 
     @Builder
-    public User(String name, int age, String contact, String position, String content) {
+    public User(Long id, String name, int age, String contact, String position, String content) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.contact = contact;

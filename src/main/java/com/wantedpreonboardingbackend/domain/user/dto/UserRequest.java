@@ -2,10 +2,14 @@ package com.wantedpreonboardingbackend.domain.user.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
-@Getter
+@Getter @Setter
+@NoArgsConstructor
 public class UserRequest {
 
     @NotBlank(message = "이름은 필수입니다.")
@@ -23,4 +27,13 @@ public class UserRequest {
 
     @NotBlank(message = "자기소개서는 필수입니다.")
     private String content;
+
+    @Builder
+    public UserRequest(String name, int age, String contact, String position, String content) {
+        this.name = name;
+        this.age = age;
+        this.contact = contact;
+        this.position = position;
+        this.content = content;
+    }
 }

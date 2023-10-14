@@ -24,8 +24,7 @@ public class UserService {
                 .content(request.getContent())
                 .build();
 
-        userRepository.save(user);
 
-        return user.getId();
+        return userRepository.save(user).getId();
     }
 }
