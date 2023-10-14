@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
 class UserControllerTest {
 
@@ -34,7 +35,7 @@ class UserControllerTest {
     }
 
     @Test
-    void 회사등록() throws Exception{
+    void 회원등록() throws Exception{
 
         UserRequest request = UserRequest.builder()
                 .name("TestName")
@@ -46,7 +47,7 @@ class UserControllerTest {
 
         when(userService.register(any(UserRequest.class))).thenReturn(1L);
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/user")
+        mockMvc.perform(post("/user")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(request)))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
