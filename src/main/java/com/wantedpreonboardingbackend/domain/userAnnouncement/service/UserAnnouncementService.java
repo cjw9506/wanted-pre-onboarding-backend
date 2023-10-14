@@ -38,9 +38,9 @@ public class UserAnnouncementService {
                 .user(user)
                 .build();
 
-        userAnnouncementRepository.save(apply);
+        return userAnnouncementRepository.save(apply).getId();
 
-        return apply.getId();
+
 
     }
 }

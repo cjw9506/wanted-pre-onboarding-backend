@@ -24,7 +24,8 @@ public class UserAnnouncement {
     private Announcement announcement;
 
     @Builder
-    public UserAnnouncement(User user, Announcement announcement) {
+    public UserAnnouncement(Long id, User user, Announcement announcement) {
+        this.id = id;
         this.user = user;
         this.announcement = announcement;
     }

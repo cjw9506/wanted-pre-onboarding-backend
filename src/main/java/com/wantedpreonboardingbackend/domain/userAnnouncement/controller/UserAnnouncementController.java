@@ -21,6 +21,6 @@ public class UserAnnouncementController {
 
         Long applyId = userAnnouncementService.apply(request);
 
-        return ResponseEntity.created(URI.create("/announcement/apply/" + applyId)).build();
+        return ResponseEntity.created(URI.create("/apply/" + applyId)).build();
     }
 }
