@@ -38,5 +38,6 @@
 - **[선택사항]** Unit Test는 Mocking을 활용하여 진행하였습니다.
 - **[참조사항]** 모델: company, user, announcement, UserAnnouncement
 - **[참조사항]** 회사와 유저는 data.sql에 임의로 데이터를 넣어두었습니다.
+- **[참조사항]** company, user, announcement의 데이터 등록과정에 validation으로 1차 검증을 진행합니다.
 - **[참조사항]** 기술 스택: Java, Spring Boot, MySQL
 
